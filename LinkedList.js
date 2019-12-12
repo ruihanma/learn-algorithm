@@ -87,13 +87,17 @@ function LinkedList() {
         //将previous与current的下一项链接起来:跳过current，从而移除它
         previous.next = current.next; // {9}
         this.length--; //更新列表的长度
+        return true;
       }
     } else return null;
   };
   /**
    * 从列表中移除一项。
    */
-  this.remove = function(element) {};
+  this.remove = function(element) {
+      let index = this.indexOf(element);
+      return this.removeAt(index);
+  };
   /**
    * 返回元素在列表中的索引。如果列表中没有该元素则返回-1。
    */
@@ -121,7 +125,9 @@ function LinkedList() {
   /**
    * 如果链表中不包含任何元素，返回true，如果链表长度大于0则返回false。
    */
-  this.isEmpty = function() {};
+  this.isEmpty = function() {
+      return this.length === 0;
+  };
   /**
    * 返回链表包含的元素个数。与数组的length属性类似。
    */
@@ -149,4 +155,5 @@ list.append(10);
 list.append(13);
 list.append(11);
 list.append(12);
-console.log(list.indexOf(13));
+console.log(list.remove(13));
+console.log(list);
