@@ -44,21 +44,22 @@ function LinkedList() {
   this.insert = function(position, element) {
     // 边界检查
     if (position > -1 && position < this.length) {
-         let node = new Node(element),
-         current = this.head, // 链表永远从头开始
-         index = 0,
-         previous;
+      let node = new Node(element),
+        current = this.head, // 链表永远从头开始
+        index = 0,
+        previous;
 
-      if (position === 0) { // 如果是头
-            node.next = this.head;
-            this.head = node
-      }else{
-          while(index++ < position){
-              previous = current;
-              current = current.next;
-          }
-          previous.next = node;
-          node.next = current;
+      if (position === 0) {
+        // 如果是头
+        node.next = this.head;
+        this.head = node;
+      } else {
+        while (index++ < position) {
+          previous = current;
+          current = current.next;
+        }
+        previous.next = node;
+        node.next = current;
       }
 
       this.length++;
@@ -96,7 +97,27 @@ function LinkedList() {
   /**
    * 返回元素在列表中的索引。如果列表中没有该元素则返回-1。
    */
-  this.indexOf = function(element) {};
+  this.indexOf = function(element) {
+    if (!element) return -1;
+    let current = this.head,
+      index = 0;
+    while (current) {
+        if(current.element == element){
+            return index
+        }
+        index++;
+        current = current.next;
+    }
+    // while (index < this.length) {
+    //   if (current.element == element) {
+    //     return index;
+    //   } else {
+    //     current = current.next;
+    //     index++
+    //   }
+    // }
+    return -1;
+  };
   /**
    * 如果链表中不包含任何元素，返回true，如果链表长度大于0则返回false。
    */
@@ -110,15 +131,15 @@ function LinkedList() {
    * 由于列表项使用了Node类，就需要重写继承自JavaScript对象默认的toString方法，让其只输出元素的值。
    */
   this.toString = function() {
-      let current = this.head;
-      let str = "";
+    let current = this.head;
+    let str = "";
 
-      while(current){
-          str += current.element + (current.next ? `-` : ``);
-          current = current.next;
-      }
+    while (current) {
+      str += current.element + (current.next ? `-` : ``);
+      current = current.next;
+    }
 
-      return str
+    return str;
   };
   this.print = function() {};
 }
@@ -128,5 +149,4 @@ list.append(10);
 list.append(13);
 list.append(11);
 list.append(12);
-list.insert(3, 1);
-console.log(list.toString());
+console.log(list.indexOf(13));
