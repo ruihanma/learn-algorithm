@@ -134,7 +134,9 @@ function LinkedList() {
   this.size = function() {
       return this.length
   };
-  this.getHead = function() {};
+  this.getHead = function() {
+      return this.head
+  };
   /**
    * 由于列表项使用了Node类，就需要重写继承自JavaScript对象默认的toString方法，让其只输出元素的值。
    */
