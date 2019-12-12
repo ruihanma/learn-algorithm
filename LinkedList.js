@@ -131,7 +131,9 @@ function LinkedList() {
   /**
    * 返回链表包含的元素个数。与数组的length属性类似。
    */
-  this.size = function() {};
+  this.size = function() {
+      return this.length
+  };
   this.getHead = function() {};
   /**
    * 由于列表项使用了Node类，就需要重写继承自JavaScript对象默认的toString方法，让其只输出元素的值。
