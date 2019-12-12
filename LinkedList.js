@@ -52,6 +52,13 @@ function LinkedList() {
       if (position === 0) { // 如果是头
             node.next = this.head;
             this.head = node
+      }else{
+          while(index++ < position){
+              previous = current;
+              current = current.next;
+          }
+          previous.next = node;
+          node.next = current;
       }
 
       this.length++;
@@ -111,5 +118,5 @@ list.append(10);
 list.append(13);
 list.append(11);
 list.append(12);
-list.insert(0, 1);
+list.insert(1, 1);
 console.log(list);
