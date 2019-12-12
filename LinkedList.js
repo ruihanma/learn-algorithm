@@ -41,7 +41,22 @@ function LinkedList() {
   /**
    * 向列表的特定位置插入一个新的项。
    */
-  this.insert = function(position, element) {};
+  this.insert = function(position, element) {
+    // 边界检查
+    if (position > -1 && position < this.length) {
+         let node = new Node(element),
+         current = this.head, // 链表永远从头开始
+         index = 0,
+         previous;
+
+      if (position === 0) { // 如果是头
+            node.next = this.head;
+            this.head = node
+      }
+
+      this.length++;
+    } else return null;
+  };
   /**
    * 从列表的特定位置移除一项。
    */
@@ -60,11 +75,10 @@ function LinkedList() {
           previous = current;
           current = current.next; // 此处赋值后的current会一直指向要删除的node 因为index（增长的）到不了position（索引）会停留在前面
         }
-        
+
         //将previous与current的下一项链接起来:跳过current，从而移除它
         previous.next = current.next; // {9}
         this.length--; //更新列表的长度
-
       }
     } else return null;
   };
@@ -97,5 +111,5 @@ list.append(10);
 list.append(13);
 list.append(11);
 list.append(12);
-list.removeAt(3);
+list.insert(0, 1);
 console.log(list);
