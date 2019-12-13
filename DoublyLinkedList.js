@@ -10,4 +10,46 @@ function DoublyLinkedList() {
   this.head = null;
   this.tail = null;
 
+  // 在链表最后添加node
+  this.append = function (element) {
+    // 两种情况 1.长度为0 2.长度不为0
+    let node = new Node(element);
+    let current = this.head;
+    if (this.length === 0) {
+      this.head = node;
+    } else {
+      while (current.next) { // 当下一个存在时 说明不是tail
+        current = current.next;
+      }
+      // 当下一个为null时 此时的current为最后一个
+      node.prev = current;
+      current.next = node;
+    }
+    this.length++
+  };
+  this.insert = function (position, element) {
+  };
+  this.removeAt = function (position) {
+  };
+  this.remove = function (element) {
+  };
+  this.indexOf = function (element) {
+  };
+  this.isEmpty = function () {
+  };
+  this.size = function () {
+  };
+  this.getHead = function () {
+  };
+  this.toString = function () {
+  };
+  this.print = function () {
+  };
+
 }
+
+let list = new DoublyLinkedList();
+list.append(10);
+list.append(13);
+list.append(16);
+console.log(list);
