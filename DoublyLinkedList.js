@@ -65,18 +65,40 @@ function DoublyLinkedList() {
     if (!this.length) return;
     if (position > -1 && position < this.length) {
       let current = this.head;
+      let previous, index = 0;
       // 3种情况
       // - 0
       if (position === 0) {
+        this.head = current.next;
+        if (this.length === 1) {
+          // this.head = null; (只有一项的情况下 current.next 就是null 所以并到 this.head = current.next)
+          this.tail = null;
+        } else {
+          this.head.prev = null;
+        }
+      } else if (position === this.length - 1) {
         if (this.length === 1) {
           this.head = null;
+          this.tail = null;
         } else {
-
+          while (current.next) {
+            previous = current;
+            current = current.next;
+          }
+          previous.next = null;
+          this.tail = previous;
         }
-        current.next.prev = null;
-        this.head = current.next;
+      } else {
+        while (index++ < position) {
+          previous = current;
+          current = current.next;
+        }
+        previous.next = current.next;
+        current.next.prev = previous;
       }
-    }
+      this.length--;
+      return current.element
+    } else return null;
   };
   this.remove = function (element) {
   };
