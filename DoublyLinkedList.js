@@ -119,6 +119,7 @@ function DoublyLinkedList() {
     return -1
   };
   this.isEmpty = function () {
+
   };
   this.size = function () {
   };
