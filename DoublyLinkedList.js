@@ -102,11 +102,8 @@ function DoublyLinkedList() {
   };
   this.remove = function (element) {
     if (!this.length) return null;
-    let current = this.head;
-    let index = 0;
-    while (current.next) {
-
-    }
+    let index = this.indexOf(element);
+    this.removeAt(index);
   };
   this.indexOf = function (element) {
     if (!this.length) return -1;
@@ -139,5 +136,6 @@ list.append(10);
 list.append(13);
 list.append(16);
 list.insert(3, 1);
+list.remove(16);
 console.log(list.indexOf(111));
 console.log(list);
