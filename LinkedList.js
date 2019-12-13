@@ -159,5 +159,6 @@ list.append(10);
 list.append(13);
 list.append(11);
 list.append(12);
-console.log(list.remove(13));
-console.log(list);
+// console.log(list.remove(13));
+// console.log(list);
+export default LinkedList;

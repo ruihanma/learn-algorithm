@@ -1461,38 +1461,48 @@ var target = 28;
 
 // console.log(twoSum(nums, target));
 /**
-给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+ 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
 
-如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+ 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
 
-您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+ 您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/add-two-numbers
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/add-two-numbers
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 
 class ListNode {
-    constructor(val) {
-      this.next = null;
-      this.val = val;
-    }
+  constructor(val) {
+    this.next = null;
+    this.val = val;
   }
-let l1 = [3, 5, 3];
-let l2 = [2, 7, 3];
+}
+import List from "./LinkedList"
+
+let l1 = new List();
+let l2 = new List();
+
+[3, 5, 3].forEach((e, i) => {
+  l1.append(e)
+});
+[2, 7, 3].forEach((e, i) => {
+  l2.append(e)
+});
+console.log(`l1`, l1);
+console.log(`l2`, l2);
 /**
  *
  * @param {*} l1
  * @param {*} l2
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
   let result;
   let cache = [];
   let flag = 0;
 
   while (l1 || l2) {
     let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + flag;
-    console.log(l1)
 
     if (sum > 9) {
       sum -= 10;
@@ -1518,6 +1528,26 @@ var addTwoNumbers = function(l1, l2) {
   }
   return result;
 };
-console.log(l1)
 
-console.log(addTwoNumbers(l1, l2))
+// 测试函数
+(function test() {
+  // 构建第一个节点
+  let l1 = new ListNode(2)
+  let l1x = new ListNode(4)
+  let l1y = new ListNode(3)
+  l1.next = l1x
+  l1x.next = l1y
+  console.log(l1.next.next.val)
+  // 构建第二个节点
+  let l2 = new ListNode(5)
+  let l2x = new ListNode(6)
+  let l2y = new ListNode(4)
+  l2.next = l2x
+  l2x.next = l2y
+  console.log(l2.next.next.val)
+  // addTwoNumbers(l1, l2)
+  console.log(addTwoNumbers(l1y, l2y));
+
+})()
+
+// console.log(addTwoNumbers(l1, l2));
