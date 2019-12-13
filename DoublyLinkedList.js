@@ -2,8 +2,8 @@
 function DoublyLinkedList() {
   let Node = function (element) {
     this.element = element;
-    this.next = null;
     this.prev = null;
+    this.next = null;
   };
 
   this.length = 0;
@@ -12,11 +12,13 @@ function DoublyLinkedList() {
 
   // 在链表最后添加node
   this.append = function (element) {
+    if (!element) return;
     // 两种情况 1.长度为0 2.长度不为0
     let node = new Node(element);
     let current = this.head;
     if (this.length === 0) {
       this.head = node;
+      this.tail = node;
     } else {
       while (current.next) { // 当下一个存在时 说明不是tail
         current = current.next;
@@ -24,6 +26,7 @@ function DoublyLinkedList() {
       // 当下一个为null时 此时的current为最后一个
       node.prev = current;
       current.next = node;
+      this.tail = node;
     }
     this.length++
   };
@@ -52,9 +55,28 @@ function DoublyLinkedList() {
         current.prev = node;
       }
       this.length++
+    } else if (position === this.length) {
+      this.append(element);
     }
   };
+  // 删除指定位置的node
   this.removeAt = function (position) {
+    // 边界检查
+    if (!this.length) return;
+    if (position > -1 && position < this.length) {
+      let current = this.head;
+      // 3种情况
+      // - 0
+      if (position === 0) {
+        if (this.length === 1) {
+          this.head = null;
+        } else {
+
+        }
+        current.next.prev = null;
+        this.head = current.next;
+      }
+    }
   };
   this.remove = function (element) {
   };
@@ -77,5 +99,5 @@ let list = new DoublyLinkedList();
 list.append(10);
 list.append(13);
 list.append(16);
-list.insert(1, 1);
+list.insert(3, 1);
 console.log(list);
