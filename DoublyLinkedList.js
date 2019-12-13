@@ -28,7 +28,7 @@ function DoublyLinkedList() {
       current.next = node;
       this.tail = node;
     }
-    this.length++
+    this.length++;
   };
   // 在指定位置插入node
   this.insert = function (position, element) {
@@ -54,19 +54,19 @@ function DoublyLinkedList() {
         node.next = current;
         current.prev = node;
       }
-      this.length++
+      this.length++;
+      return current.element;
     } else if (position === this.length) {
       this.append(element);
-    }
+    } else return null;
   };
   // 删除指定位置的node
   this.removeAt = function (position) {
     // 边界检查
-    if (!this.length) return;
+    if (!this.length) return null;
     if (position > -1 && position < this.length) {
       let current = this.head;
       let previous, index = 0;
-      // 3种情况
       // - 0
       if (position === 0) {
         this.head = current.next;
@@ -101,8 +101,25 @@ function DoublyLinkedList() {
     } else return null;
   };
   this.remove = function (element) {
+    if (!this.length) return null;
+    let current = this.head;
+    let index = 0;
+    while (current.next) {
+
+    }
   };
   this.indexOf = function (element) {
+    if (!this.length) return -1;
+    let current = this.head;
+    let index = 0;
+    while (current) {
+      if (current.element === element) {
+        return index;
+      }
+      current = current.next;
+      index++;
+    }
+    return -1
   };
   this.isEmpty = function () {
   };
@@ -122,4 +139,5 @@ list.append(10);
 list.append(13);
 list.append(16);
 list.insert(3, 1);
+console.log(list.indexOf(111));
 console.log(list);
