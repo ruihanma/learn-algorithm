@@ -1489,8 +1489,6 @@ let l2 = new List();
 [2, 7, 3].forEach((e, i) => {
   l2.append(e)
 });
-console.log(`l1`, l1);
-console.log(`l2`, l2);
 /**
  *
  * @param {*} l1
@@ -1530,24 +1528,41 @@ var addTwoNumbers = function (l1, l2) {
 };
 
 // 测试函数
-(function test() {
-  // 构建第一个节点
-  let l1 = new ListNode(2)
-  let l1x = new ListNode(4)
-  let l1y = new ListNode(3)
-  l1.next = l1x
-  l1x.next = l1y
-  console.log(l1.next.next.val)
-  // 构建第二个节点
-  let l2 = new ListNode(5)
-  let l2x = new ListNode(6)
-  let l2y = new ListNode(4)
-  l2.next = l2x
-  l2x.next = l2y
-  console.log(l2.next.next.val)
-  // addTwoNumbers(l1, l2)
-  console.log(addTwoNumbers(l1y, l2y));
-
-})()
+// (function test() {
+//   // 构建第一个节点
+//   let l1 = new ListNode(2)
+//   let l1x = new ListNode(4)
+//   let l1y = new ListNode(3)
+//   l1.next = l1x
+//   l1x.next = l1y
+//   console.log(l1.next.next.val)
+//   // 构建第二个节点
+//   let l2 = new ListNode(5)
+//   let l2x = new ListNode(6)
+//   let l2y = new ListNode(4)
+//   l2.next = l2x
+//   l2x.next = l2y
+//   console.log(l2.next.next.val)
+//   // addTwoNumbers(l1, l2)
+//   console.log(addTwoNumbers(l1y, l2y));
+//
+// })()
 
 // console.log(addTwoNumbers(l1, l2));
+var numbers = [0,1,2,3,4,5,6,7,8,9];
+var numbers2 = [1, 2];
+let aEntries = nums.entries();
+// console.log(aEntries.next())
+// console.log(aEntries.next().value)
+// let every = numbers2.every(el => el % 2 === 0);
+// console.log(every);
+// let some = numbers2.some(el => el % 2 === 0);
+// console.log(some);
+// let map = numbers.map(el => el % 2 === 0);
+// console.log(map);
+// let filter = numbers.filter(el => el % 2 === 0);
+// console.log(filter);
+numbers.reduce((previousValue, currentValue, index) => {
+  console.log(previousValue, currentValue, index);
+  return currentValue
+})
