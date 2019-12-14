@@ -1562,7 +1562,12 @@ let aEntries = nums.entries();
 // console.log(map);
 // let filter = numbers.filter(el => el % 2 === 0);
 // console.log(filter);
-numbers.reduce((previousValue, currentValue, index) => {
-  console.log(previousValue, currentValue, index);
-  return currentValue
-})
+// numbers.reduce((previousValue, currentValue, index) => {
+//   console.log(previousValue, currentValue, index);
+//   return currentValue
+// })
+
+for (let n of numbers) {
+  console.log(n);
+  console.log((n % 2 == 0) ? 'even' : 'odd');
+}
