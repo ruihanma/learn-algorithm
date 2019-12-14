@@ -1551,7 +1551,6 @@ var addTwoNumbers = function (l1, l2) {
 // console.log(addTwoNumbers(l1, l2));
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 var numbers2 = [1, 2];
-let aEntries = nums.entries();
 // console.log(aEntries.next())
 // console.log(aEntries.next().value)
 // let every = numbers2.every(el => el % 2 === 0);
@@ -1567,7 +1566,15 @@ let aEntries = nums.entries();
 //   return currentValue
 // })
 
-for (let n of numbers) {
-  console.log(n);
-  console.log((n % 2 == 0) ? 'even' : 'odd');
-}
+// for (let n of numbers) {
+//   console.log(n);
+//   console.log((n % 2 == 0) ? 'even' : 'odd');
+// }
+
+let aEntries = nums.entries(); // 得到索引 和value
+// console.log(aEntries.next());
+// let aKey = nums.keys();
+// console.log(aKey.next());
+let copyArray = [1, 2, 3, 4, 5, 6];
+copyArray.copyWithin(1, 3, 5);
+console.log(copyArray);
