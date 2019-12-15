@@ -1,3 +1,4 @@
+// "use strict"
 /**
  * 1. 两数之和
  */
@@ -1494,7 +1495,7 @@ let l2 = new List();
  * @param {*} l1
  * @param {*} l2
  */
-var addTwoNumbers = function (l1, l2) {
+let addTwoNumbers = function (l1, l2) {
   let result;
   let cache = [];
   let flag = 0;
@@ -1549,7 +1550,7 @@ var addTwoNumbers = function (l1, l2) {
 // })()
 
 // console.log(addTwoNumbers(l1, l2));
-var numbers = [0,1,2,3,4,5,6,7,8,9];
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var numbers2 = [1, 2];
 // console.log(aEntries.next())
 // console.log(aEntries.next().value)
@@ -1571,10 +1572,32 @@ var numbers2 = [1, 2];
 //   console.log((n % 2 == 0) ? 'even' : 'odd');
 // }
 
-let aEntries = nums.entries(); // 得到索引 和value
+// let aEntries = nums.entries(); // 得到索引 和value
 // console.log(aEntries.next());
 // let aKey = nums.keys();
 // console.log(aKey.next());
-let copyArray = [1, 2, 3, 4, 5, 6];
-copyArray.copyWithin(1, 3, 5);
-console.log(copyArray);
+// let copyArray = [1, 2, 3, 4, 5, 6];
+// copyArray.copyWithin(1, 3, 5);
+// console.log(copyArray);
+
+// let names = ["Ana", "John", "ana", "john"];
+// let result = names.sort(function (a, b) {
+//   console.log(a, b);
+//   if (a.toLowerCase() < b.toLowerCase()) {
+//     return -1
+//   }
+//   if (a.toLowerCase() > b.toLowerCase()) {
+//     return 1
+//   }
+//   return 0;
+// });
+// console.log(result);
+//
+// console.log(numbers.toString());
+//
+// var f64a = new Float64Array(8);
+// f64a[0] = 10;
+// f64a[1] = 20;
+// f64a[2] = f64a[0] + f64a[1];
+// console.log(f64a);
+
