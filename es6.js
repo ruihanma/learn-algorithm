@@ -1,10 +1,10 @@
 function* foo(x) {
-  var y = 2 * (yield x + 10);
-  var z = yield y / 4;
+  let y = 2 * (yield x + 10);
+  let z = yield y / 4;
   return x + y + z;
 }
 
-var a = foo(5);
+let a = foo(5);
 
 console.log(a.next()); // 第一次会执行yield括号内的
 console.log(a.next(4)); // 传值会重置上一次的yield的值 即是yield后面的数据
@@ -66,7 +66,7 @@ const observable = obj => new Proxy(obj, {set});
 //   return result;
 // }
 
-var g = function* () {
+let g = function* () {
   try {
     yield;
   } catch (e) {
@@ -74,7 +74,7 @@ var g = function* () {
   }
 };
 
-var i = g();
+let i = g();
 i.next();
 
 try {
